@@ -1,0 +1,36 @@
+{
+  "kind": "collectionType",
+  "collectionName": "hacker_houses",
+  "info": {
+    "singularName": "hacker-house",
+    "pluralName": "hacker-houses",
+    "displayName": "HackerHouse",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true,
+      "minLength": 2,
+      "maxLength": 32
+    },
+    "description": {
+      "type": "text",
+      "minLength": 6,
+      "maxLength": 256,
+      "required": false
+    },
+    "avatar": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    }
+  }
+}

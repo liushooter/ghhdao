@@ -10,7 +10,7 @@ export function SiteHeader() {
   const user = useUser()
 
   return (
-    <header className="bg-background container z-40">
+    <header className="container z-40 bg-background">
       <div className="flex h-20 items-center justify-between py-6">
         <Link href="/" className="text-lg font-semibold">
           Global Hacker House DAO

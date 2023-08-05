@@ -1,8 +1,10 @@
 export interface HackerHouse {
+  id: string
   name: string
-  avatar: string
+  description: string
+  avatar?: string
   events: number
   projects: number
-  people: number
+  members: number
   createdAt: string
 }

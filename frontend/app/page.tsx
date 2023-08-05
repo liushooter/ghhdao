@@ -6,10 +6,11 @@ const MOCK_DATA: HackerHouse[] = [
   {
     createdAt: "...",
     events: 2,
-    name: "AntAlpha",
+    name: "Global Hacker House DAO",
+    description:
+      "Global Hacker House DAO is a DAO that focus on improving hacker house experience.",
     people: 2,
     projects: 4,
-    avatar: "https://github.com/shadcn.png",
   },
 ]
 

@@ -1,16 +1,19 @@
 import ky, { type SearchParamsOption } from "ky"
 
-export interface Session { jwt: string, user: GitHubUser }
+export interface Session {
+  jwt: string
+  user: GitHubUser
+}
 
 export interface GitHubUser {
-  id: number;
-  username: string;
-  email: string;
-  provider: string;
-  confirmed: boolean;
-  blocked: boolean;
-  createdAt: string;
-  updatedAt: string;
+  id: number
+  username: string
+  email: string
+  provider: string
+  confirmed: boolean
+  blocked: boolean
+  createdAt: string
+  updatedAt: string
 }
 
 export async function getCurrentSession({
