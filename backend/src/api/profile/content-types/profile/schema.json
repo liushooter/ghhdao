@@ -1,10 +1,10 @@
 {
   "kind": "collectionType",
-  "collectionName": "people",
+  "collectionName": "profile",
   "info": {
-    "singularName": "person",
-    "pluralName": "people",
-    "displayName": "person",
+    "singularName": "profile",
+    "pluralName": "profiles",
+    "displayName": "Profile",
     "description": ""
   },
   "options": {
@@ -12,7 +12,7 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "name": {
+    "nickname": {
       "type": "string"
     },
     "avatar": {
@@ -34,9 +34,6 @@
         "other"
       ]
     },
-    "email": {
-      "type": "email"
-    },
     "phone": {
       "type": "string"
     },
@@ -57,6 +54,12 @@
     },
     "telegram_handle": {
       "type": "string"
+    },
+    "user": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "plugin::users-permissions.user",
+      "mappedBy": "profile"
     }
   }
 }
