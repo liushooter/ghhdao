@@ -12,6 +12,9 @@
   },
   "pluginOptions": {},
   "attributes": {
+    "nick_name": {
+      "type": "string"
+    },
     "avatar": {
       "type": "media",
       "multiple": false,
@@ -52,14 +55,17 @@
     "telegram_handle": {
       "type": "string"
     },
-    "nick_name": {
+    "eth_address": {
       "type": "string"
     },
-    "eth_address": {
-      "type": "text"
-    },
     "discord_handle": {
-      "type": "text"
+      "type": "string"
+    },
+    "user": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "plugin::users-permissions.user",
+      "inversedBy": "profile"
     }
   }
 }
