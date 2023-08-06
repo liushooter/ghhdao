@@ -4,12 +4,13 @@ import { type HackerHouse } from "#/lib/model"
 
 const MOCK_DATA: HackerHouse[] = [
   {
+    id: "...",
     createdAt: "...",
     events: 2,
     name: "Global Hacker House DAO",
     description:
       "Global Hacker House DAO is a DAO that focus on improving hacker house experience.",
-    people: 2,
+    members: 2,
     projects: 4,
   },
 ]
