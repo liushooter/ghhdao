@@ -1,6 +1,6 @@
 {
   "kind": "collectionType",
-  "collectionName": "profile",
+  "collectionName": "profiles",
   "info": {
     "singularName": "profile",
     "pluralName": "profiles",
@@ -12,9 +12,6 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "nickname": {
-      "type": "string"
-    },
     "avatar": {
       "type": "media",
       "multiple": false,
@@ -55,11 +52,14 @@
     "telegram_handle": {
       "type": "string"
     },
-    "user": {
-      "type": "relation",
-      "relation": "oneToOne",
-      "target": "plugin::users-permissions.user",
-      "mappedBy": "profile"
+    "nick_name": {
+      "type": "string"
+    },
+    "eth_address": {
+      "type": "text"
+    },
+    "discord_handle": {
+      "type": "text"
     }
   }
 }
