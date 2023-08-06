@@ -51,6 +51,12 @@
     },
     "telegram_handle": {
       "type": "string"
+    },
+    "user": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "plugin::users-permissions.user",
+      "mappedBy": "profile"
     }
   }
 }
