@@ -1,10 +1,10 @@
 {
   "kind": "collectionType",
-  "collectionName": "people",
+  "collectionName": "profiles",
   "info": {
-    "singularName": "person",
-    "pluralName": "people",
-    "displayName": "person",
+    "singularName": "profile",
+    "pluralName": "profiles",
+    "displayName": "Profile",
     "description": ""
   },
   "options": {
@@ -12,9 +12,6 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "name": {
-      "type": "string"
-    },
     "avatar": {
       "type": "media",
       "multiple": false,
@@ -33,9 +30,6 @@
         "female",
         "other"
       ]
-    },
-    "email": {
-      "type": "email"
     },
     "phone": {
       "type": "string"
