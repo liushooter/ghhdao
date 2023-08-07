@@ -1,6 +1,11 @@
 import ky, { type SearchParamsOption } from "ky"
 
-export interface Session { jwt: string, user: GitHubUser }
+export const LOCAL_JWT_KEY = "__GHH_JWT__"
+export const LOCAL_USER_KEY = "__GHH_CURRENT_USER__"
+export interface Session {
+  jwt: string
+  user: GitHubUser
+}
 
 export interface GitHubUser {
   id: number;
@@ -9,8 +14,7 @@ export interface GitHubUser {
   provider: string;
   confirmed: boolean;
   blocked: boolean;
-  createdAt: string;
-  updatedAt: string;
+  image?: string;
 }
 
 export async function getCurrentSession({
@@ -32,4 +36,15 @@ export async function getCurrentSession({
     .json<Session>()
 
   return session
+}
+
+export function signOut() {
+  if (typeof window === "undefined") {
+    return
+  }
+
+  localStorage.removeItem(LOCAL_JWT_KEY)
+  localStorage.removeItem(LOCAL_USER_KEY)
+
+  window.location.replace("/")
 }

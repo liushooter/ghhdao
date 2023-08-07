@@ -1,7 +1,7 @@
 'use strict';
 
 /**
- * person controller
+ * profile controller
  */
 
 const { createCoreController } = require('@strapi/strapi').factories;
