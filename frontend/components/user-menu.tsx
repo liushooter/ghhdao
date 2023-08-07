@@ -1,7 +1,6 @@
 "use client"
 
 import { Button } from "#/components/ui/button"
-import { signOut } from "next-auth/react"
 
 import {
   DropdownMenu,
@@ -13,7 +12,7 @@ import {
 import Link from "next/link"
 import { Avatar, AvatarFallback } from "./ui/avatar"
 import { AvatarImage } from "@radix-ui/react-avatar"
-import { type Session } from "#/lib/session"
+import { signOut, type Session } from "#/lib/session"
 import { getUserInitials } from "#/lib/utils"
 
 export interface UserMenuProps {
@@ -39,7 +38,7 @@ export function UserMenu({ user }: UserMenuProps) {
             <span className="ml-2">{user?.username}</span>
           </Button>
         </DropdownMenuTrigger>
-        <DropdownMenuContent sideOffset={8} align="start" className="">
+        <DropdownMenuContent sideOffset={8} align="end">
           <DropdownMenuItem className="flex-col items-start">
             <div className="text-xs font-medium">{user?.username}</div>
             <div className="text-xs text-zinc-500">{user?.email}</div>
@@ -53,14 +52,7 @@ export function UserMenu({ user }: UserMenuProps) {
               Dashboard
             </Link>
           </DropdownMenuItem>
-          <DropdownMenuItem
-            onClick={() =>
-              signOut({
-                callbackUrl: "/",
-              })
-            }
-            className="text-xs"
-          >
+          <DropdownMenuItem onClick={() => signOut()} className="text-xs">
             Log Out
           </DropdownMenuItem>
         </DropdownMenuContent>

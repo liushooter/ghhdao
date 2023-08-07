@@ -3,7 +3,8 @@ import { siteConfig } from "#/config/site"
 import "./globals.css"
 import type { Metadata } from "next"
 import { Inter } from "next/font/google"
-import { SiteHeader } from "#/components/site-header"
+import { cn } from "#/lib/utils"
+import { TooltipProvider } from "#/components/ui/tooltip"
 
 const inter = Inter({ subsets: ["latin"] })
 
@@ -53,11 +54,8 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>
-        <SiteHeader />
-
-        {children}
-
+      <body className={cn(inter.className)}>
+        <TooltipProvider delayDuration={0}>{children}</TooltipProvider>
         <TailwindIndicator />
       </body>
     </html>

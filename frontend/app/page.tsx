@@ -1,40 +1,68 @@
+import { HackerHouseEvents } from "#/components/hacker-house-events"
 import { HackerHouses } from "#/components/hacker-houses"
-import { delay } from "#/lib/api-helpers"
-import { type HackerHouse } from "#/lib/model"
+import { SiteHeader } from "#/components/site-header"
+import { fetchAPI } from "#/lib/fetch-api"
+import type { HackerHouseEvent, HackerHouse, MediaData } from "#/lib/model"
 
-const MOCK_DATA: HackerHouse[] = [
-  {
-    id: "...",
-    createdAt: "...",
-    events: 2,
-    name: "Global Hacker House DAO",
-    description:
-      "Global Hacker House DAO is a DAO that focus on improving hacker house experience.",
-    members: 2,
-    projects: 4,
-  },
-]
+interface ApiOrganization {
+  id: number
+  attributes: {
+    title: string
+    description?: string
+    avatar: {
+      data: MediaData
+    }
+  }
+}
 
 const getHackerHouses = async () => {
-  await delay(1000)
+  const res = await fetchAPI<ApiOrganization[]>("/organizations?populate=*")
+  return {
+    ...res,
+    data: res.data?.map(
+      (x) =>
+        ({
+          title: x.attributes.title as unknown as string,
+          description: x.attributes.description as unknown as string,
+          id: x.id as unknown as number,
+          avatar: x.attributes.avatar.data.attributes.formats.thumbnail?.url,
+        }) satisfies HackerHouse
+    ),
+  }
+}
 
-  return MOCK_DATA
+const getHackerHouseEvents = async () => {
+  return await fetchAPI<HackerHouseEvent[]>("/events?populate=*")
 }
 
 export default async function Home() {
-  const hackerHouses = await getHackerHouses()
+  const { data: houses } = await getHackerHouses()
+  const { data: events } = await getHackerHouseEvents()
 
   return (
-    <main className="container">
-      <div className="flex min-h-screen flex-col py-12">
-        <div className="flex justify-between">
-          <h2 className="scroll-m-20 pb-2 text-3xl font-semibold tracking-tight transition-colors first:mt-0">
-            Hacker House
-          </h2>
-        </div>
+    <>
+      <SiteHeader />
+      <main className="container">
+        <div className="flex min-h-screen flex-col space-y-12 py-12">
+          <div className="flex flex-col">
+            <div className="flex justify-between">
+              <h2 className="scroll-m-20 pb-2 text-3xl font-semibold tracking-tight transition-colors first:mt-0">
+                Hacker House
+              </h2>
+            </div>
+            <HackerHouses data={houses} />
+          </div>
 
-        <HackerHouses data={hackerHouses} />
-      </div>
-    </main>
+          <div className="flex flex-col">
+            <div className="flex justify-between">
+              <h2 className="scroll-m-20 pb-2 text-3xl font-semibold tracking-tight transition-colors first:mt-0">
+                Hacker House Events
+              </h2>
+            </div>
+            <HackerHouseEvents data={events} />
+          </div>
+        </div>
+      </main>
+    </>
   )
 }
