@@ -8,29 +8,24 @@
     "description": ""
   },
   "options": {
-    "draftAndPublish": true
+    "draftAndPublish": false
   },
   "pluginOptions": {},
   "attributes": {
     "title": {
-      "type": "text"
+      "type": "string"
     },
     "events": {
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::event.event"
     },
-    "description": {
-      "type": "text",
-      "minLength": 32,
-      "maxLength": 256
+    "introduce": {
+      "type": "text"
     },
-    "avatar": {
+    "logo": {
       "allowedTypes": [
-        "images",
-        "files",
-        "videos",
-        "audios"
+        "images"
       ],
       "type": "media",
       "multiple": false
