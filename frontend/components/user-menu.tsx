@@ -44,14 +44,14 @@ export function UserMenu({ user }: UserMenuProps) {
             <div className="text-xs text-zinc-500">{user?.email}</div>
           </DropdownMenuItem>
           <DropdownMenuSeparator />
-          <DropdownMenuItem asChild>
+          {/* <DropdownMenuItem asChild>
             <Link
               href="/dashboard"
               className="inline-flex w-full items-center justify-between text-xs"
             >
               Dashboard
             </Link>
-          </DropdownMenuItem>
+          </DropdownMenuItem> */}
           <DropdownMenuItem onClick={() => signOut()} className="text-xs">
             Log Out
           </DropdownMenuItem>

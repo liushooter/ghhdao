@@ -43,7 +43,7 @@ export interface Organization {
   attributes: {
     title: string
     publishedAt: string
-    avatar: {
+    logo: {
       data: MediaData
     }
   }

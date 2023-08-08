@@ -55,7 +55,7 @@ export function EventTopCard({
                 <Avatar className="h-8 w-8">
                   <AvatarImage
                     src={getStrapiURL(
-                      organization.attributes.avatar?.data.attributes.formats
+                      organization.attributes.logo?.data?.attributes.formats
                         .thumbnail?.url
                     )}
                     alt={`@${organization.attributes.title}`}

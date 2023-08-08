@@ -1,8 +1,7 @@
 import { type HackerHouseEvent } from "#/lib/model"
 import React from "react"
 import { Card, CardContent, CardHeader, CardTitle } from "./ui/card"
-import { TextIcon, GhostIcon, TicketIcon } from "lucide-react"
-import { Button } from "./ui/button"
+import { TextIcon, TicketIcon } from "lucide-react"
 import { EventApplyAction } from "./event-apply-action"
 
 export function EventBottomSection({ event }: { event: HackerHouseEvent }) {
@@ -19,7 +18,7 @@ export function EventBottomSection({ event }: { event: HackerHouseEvent }) {
 
             <CardContent className="flex flex-col gap-2">
               <p>Join this event for fun!</p>
-              <EventApplyAction />
+              <EventApplyAction event={event} />
             </CardContent>
           </div>
         </Card>

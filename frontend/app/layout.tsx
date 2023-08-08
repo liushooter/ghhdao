@@ -55,7 +55,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={cn(inter.className)}>
-        <TooltipProvider delayDuration={0}>{children}</TooltipProvider>
+        <TooltipProvider delayDuration={0}>
+          {children}
+        </TooltipProvider>
         <TailwindIndicator />
       </body>
     </html>

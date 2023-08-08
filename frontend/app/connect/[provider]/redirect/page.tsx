@@ -2,6 +2,8 @@
 
 import { useEffect, useState } from "react"
 import { type GitHubUser, getCurrentSession } from "#/lib/session"
+// @ts-expect-error typings
+import { useHasMounted } from "@react-hooks-library/core"
 
 interface LoginRedirectPageProps {
   params?: { provider: "github" }
@@ -13,19 +15,22 @@ export default function LoginRedirectPage({
   searchParams,
 }: LoginRedirectPageProps) {
   const [user, setUser] = useState<GitHubUser>()
+  const [error, setError] = useState<string>()
+  const hasMounted = useHasMounted()
 
   useEffect(() => {
+    if (!hasMounted) {
+      return
+    }
+
     ;(async () => {
-      if (
-        !params?.provider ||
-        !searchParams?.access_token ||
-        typeof window === "undefined"
-      ) {
-        return window.location.replace("/")
+      if (!params?.provider || !searchParams?.access_token) {
+        return setTimeout(() => window.location.replace("/"), 3000)
       }
 
       if (searchParams.error) {
-        return window.location.replace("/")
+        setError(searchParams.error)
+        return setTimeout(() => window.location.replace("/"), 3000)
       }
 
       const session = await getCurrentSession({
@@ -37,12 +42,12 @@ export default function LoginRedirectPage({
         throw new Error(`Couldn't login to Strapi.`)
       }
 
-      localStorage.setItem("__GHH_JWT__", session.jwt)
+      localStorage.setItem("__GHH_JWT__", JSON.stringify(session.jwt))
       localStorage.setItem("__GHH_CURRENT_USER__", JSON.stringify(session.user))
       setUser(session.user)
-      window.location.replace("/") // Redirect to homepage after 3 sec
+      setTimeout(() => window.location.replace("/"), 3000)
     })()
-  }, [params?.provider, searchParams])
+  }, [hasMounted, params?.provider, searchParams])
 
   return (
     <main className="container py-12">
@@ -53,6 +58,8 @@ export default function LoginRedirectPage({
           <h3 className="font-bold text-gray-900"> {user.username}!</h3>
         </div>
       )}
+
+      {error && <p className="text-red-600">{error}</p>}
     </main>
   )
 }
