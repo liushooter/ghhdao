@@ -1,6 +1,7 @@
 'use client';
 
 import * as React from 'react';
+import '@rainbow-me/rainbowkit/styles.css';
 import {
     RainbowKitProvider,
     getDefaultWallets,
@@ -34,16 +35,16 @@ const { chains, publicClient, webSocketPublicClient } = configureChains(
     [publicProvider()]
 );
 
-const projectId = 'YOUR_PROJECT_ID';
+const projectId = 'GHH_ID';
 
 const { wallets } = getDefaultWallets({
-    appName: 'RainbowKit demo',
+    appName: 'Global Hacker House',
     projectId,
     chains,
 });
 
 const demoAppInfo = {
-    appName: 'Rainbowkit Demo',
+    appName: 'Global Hacker House',
 };
 
 const connectors = connectorsForWallets([

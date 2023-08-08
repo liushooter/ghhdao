@@ -21,9 +21,10 @@ export function SiteHeader(props: React.HTMLAttributes<HTMLDivElement>) {
           <Link href="/" className="text-lg font-semibold">
             Global Hacker House DAO
           </Link>
-
-          {user ? <UserMenu user={user} /> : <GithubLoginButton />}
-          <ConnectButton />
+          <div style={{display: 'flex',justifyContent: 'flex-end',padding: 12,}}>
+            {user ? <UserMenu user={user} /> : <GithubLoginButton />}
+            <ConnectButton />
+          </div>
         </div>
 
       </div>
