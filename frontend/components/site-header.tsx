@@ -6,6 +6,7 @@ import { UserMenu } from "./user-menu"
 import { GithubLoginButton } from "./github-login-button"
 import Link from "next/link"
 import { cn } from "#/lib/utils"
+import {ConnectButton} from "@rainbow-me/rainbowkit";
 
 export function SiteHeader(props: React.HTMLAttributes<HTMLDivElement>) {
   const user = useUser()
@@ -20,9 +21,12 @@ export function SiteHeader(props: React.HTMLAttributes<HTMLDivElement>) {
           <Link href="/" className="text-lg font-semibold">
             Global Hacker House DAO
           </Link>
-
-          {user ? <UserMenu user={user} /> : <GithubLoginButton />}
+          <div style={{display: 'flex',justifyContent: 'flex-end',padding: 12,}}>
+            {user ? <UserMenu user={user} /> : <GithubLoginButton />}
+            <ConnectButton />
+          </div>
         </div>
+
       </div>
     </header>
   )

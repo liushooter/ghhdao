@@ -3,6 +3,7 @@ import { HackerHouses } from "#/components/hacker-houses"
 import { SiteHeader } from "#/components/site-header"
 import { fetchAPI } from "#/lib/fetch-api"
 import type { HackerHouseEvent, HackerHouse, MediaData } from "#/lib/model"
+import React from "react";
 
 interface ApiOrganization {
   id: number
@@ -25,7 +26,7 @@ const getHackerHouses = async () => {
           title: x.attributes.title as unknown as string,
           description: x.attributes.description as unknown as string,
           id: x.id as unknown as number,
-          avatar: x.attributes.avatar.data.attributes.formats.thumbnail?.url,
+          avatar: x.attributes.avatar?.data.attributes.formats.thumbnail?.url,
         }) satisfies HackerHouse
     ),
   }
