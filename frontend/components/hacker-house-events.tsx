@@ -13,7 +13,7 @@ interface HackerHouseEventsProps {
 
 export function HackerHouseEvents({ data }: HackerHouseEventsProps) {
   return (
-    <div className="mt-4 flex items-center space-x-4">
+    <div className="mt-4 flex space-x-4">
       {data?.map((x) => {
         const hasCover = !!x.attributes.post?.data?.[0]?.attributes?.url
 
@@ -28,7 +28,7 @@ export function HackerHouseEvents({ data }: HackerHouseEventsProps) {
                       src={getStrapiURL(
                         x.attributes.post?.data?.[0].attributes.url
                       )}
-                      className="w-full"
+                      className="max-h-72 w-full object-cover"
                       alt={`Cover of ${x.attributes.title}`}
                     />
                   ) : (
@@ -40,21 +40,22 @@ export function HackerHouseEvents({ data }: HackerHouseEventsProps) {
                   )}
                 </div>
 
-                <div className="space-y-1">
-                  <h3 className="font-bold text-gray-900">
-                    {x.attributes.title}
-                  </h3>
-                  <p className="break-words text-sm text-gray-900">
-                    {x.attributes.introduce ?? "no desceiption~"}
-                  </p>
-                </div>
-
-                <div className="flex justify-end">
-                  <p className="text-sm text-muted-foreground">
-                    {format(new Date(x.attributes.start_time), "do MMM, yyyy")}
-                    {" to "}
-                    {format(new Date(x.attributes.end_time), "do MMM, yyyy")}
-                  </p>
+                <div>
+                  <div className="space-y-1">
+                    <h3 className="font-bold text-gray-900">
+                      {x.attributes.title}
+                    </h3>
+                    <p className="truncate break-words text-sm text-gray-900">
+                      {x.attributes.introduce ?? "no desceiption~"}
+                    </p>
+                  </div>
+                  <div className="flex justify-end">
+                    <p className="text-muted-foreground text-sm">
+                      {format(new Date(x.attributes.start_time), "do MMM, yyyy")}
+                      {" to "}
+                      {format(new Date(x.attributes.end_time), "do MMM, yyyy")}
+                    </p>
+                  </div>
                 </div>
               </div>
             </Card>

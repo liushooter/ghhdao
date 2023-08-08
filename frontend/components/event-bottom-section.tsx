@@ -26,7 +26,7 @@ export function EventBottomSection({ event }: { event: HackerHouseEvent }) {
                 </CardTitle>
               </CardHeader>
 
-              <CardContent>{event.attributes.introduce}</CardContent>
+              <CardContent style={{ wordBreak: 'break-word' }}>{event.attributes.introduce}</CardContent>
             </div>
           </Card>
         )}
