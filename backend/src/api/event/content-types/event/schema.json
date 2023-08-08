@@ -75,11 +75,6 @@
       "relation": "oneToOne",
       "target": "api::organization.organization"
     },
-    "hackers": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "plugin::users-permissions.user"
-    },
     "projects": {
       "type": "relation",
       "relation": "oneToMany",
@@ -89,6 +84,12 @@
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::prize.prize"
+    },
+    "event_profiles": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::event-profile.event-profile",
+      "mappedBy": "event"
     }
   }
 }

@@ -9,7 +9,6 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "#/components/ui/dropdown-menu"
-import Link from "next/link"
 import { Avatar, AvatarFallback } from "./ui/avatar"
 import { AvatarImage } from "@radix-ui/react-avatar"
 import { signOut, type Session } from "#/lib/session"
@@ -27,6 +26,7 @@ export function UserMenu({ user }: UserMenuProps) {
           <Button variant="ghost">
             <Avatar className="h-6 w-6 select-none rounded-full ring-1 ring-zinc-100/10 transition-opacity duration-300 hover:opacity-80">
               <AvatarImage
+                className="rounded-full bg-zinc-100/10"
                 src={user?.id ? `${user.id}&s=60` : ""}
                 alt={user.username ?? "Avatar"}
               />
