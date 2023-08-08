@@ -3,8 +3,6 @@
 import { useEffect } from "react"
 import { getCurrentSession } from "#/lib/session"
 
-
-
 interface LoginRedirectPagePageProps {
   params?: { provider: "github" }
   searchParams?: { access_token: string; error: string }

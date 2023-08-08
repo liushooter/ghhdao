@@ -128,17 +128,3 @@ dist
 .yarn/build-state.yml
 .yarn/install-state.gz
 .pnp.*
-.DS_Store
-.idea/dictionaries
-.idea/ghhdao.iml
-.idea/hotswap_agent.xml
-.idea/misc.xml
-.idea/modules.xml
-.idea/vcs.xml
-package-lock.json
-
-# idea
-.idea
-.DS_Store
-package-lock.json
-yarn.lock

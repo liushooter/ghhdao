@@ -1,9 +1,9 @@
 'use strict';
 
 /**
- * prize controller
+ * person controller
  */
 
 const { createCoreController } = require('@strapi/strapi').factories;
 
-module.exports = createCoreController('api::prize.prize');
+module.exports = createCoreController('api::person.person');
