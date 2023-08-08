@@ -8,7 +8,7 @@ import { cn } from "#/lib/utils"
 import { LOCAL_USER_KEY } from "#/lib/session"
 // @ts-expect-error no typings
 import { useLocalStorage } from "@react-hooks-library/core"
-import { ConnectButton } from "@rainbow-me/rainbowkit"
+// import { ConnectButton } from "@rainbow-me/rainbowkit"
 
 export function SiteHeader(props: React.HTMLAttributes<HTMLDivElement>) {
   const [user] = useLocalStorage(LOCAL_USER_KEY)
@@ -23,17 +23,7 @@ export function SiteHeader(props: React.HTMLAttributes<HTMLDivElement>) {
           <Link href="/" className="text-lg font-semibold">
             Global Hacker House DAO
           </Link>
-
-          <div
-            style={{ display: "flex", alignItems: "center", padding: 0 }}
-          >
-            {user ? <UserMenu user={user} /> : <GithubLoginButton style={{
-              padding: "19px",
-              marginRight: "10px"
-            }}
-            />}
-            <ConnectButton chainStatus="none" />
-          </div>
+          {user ? <UserMenu user={user} /> : <GithubLoginButton />}
         </div>
       </div>
     </header>

@@ -1,0 +1,46 @@
+{
+  "kind": "collectionType",
+  "collectionName": "event_profiles",
+  "info": {
+    "singularName": "event-profile",
+    "pluralName": "event-profiles",
+    "displayName": "EventProfile",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "event": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::event.event",
+      "inversedBy": "event_profiles"
+    },
+    "user": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "plugin::users-permissions.user",
+      "inversedBy": "event_profiles"
+    },
+    "email": {
+      "type": "email"
+    },
+    "introduction": {
+      "type": "richtext"
+    },
+    "status": {
+      "type": "enumeration",
+      "enum": [
+        "waiting",
+        "approved",
+        "rejected"
+      ],
+      "default": "waiting"
+    },
+    "name": {
+      "type": "string"
+    }
+  }
+}

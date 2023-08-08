@@ -27,7 +27,7 @@ export function HackerHouses({ data }: HackerHousesProps) {
                 </Avatar>
                 <div className="space-y-2">
                   <h3 className="font-bold">{house.title}</h3>
-                  <p className="text-muted-foreground break-words text-sm">
+                  <p className="break-words text-sm text-muted-foreground">
                     {house.description ?? "no desceiption~"}
                   </p>
                 </div>

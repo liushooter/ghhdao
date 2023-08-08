@@ -35,8 +35,19 @@ export interface HackerHouseEvent {
     end_time: string
     publishedAt: string
     organization: { data: Organization }
-    hackers?: { data: Hacker[] }
+    // hackers?: { data: Hacker[] }
+    event_profiles?: { data: EventProfile[] }
   }
+}
+
+export interface EventProfile {
+  id: number;
+  attributes: {
+    email: string;
+    introduction: string;
+    status: 'waiting' | 'approved' | 'rejected';
+    name: string;
+  };
 }
 
 export interface Hacker {

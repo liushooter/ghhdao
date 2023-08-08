@@ -19,7 +19,7 @@ export function EventTopCard({
   const hasCover = !!event.attributes.post?.data?.[0]?.attributes?.url
 
   return (
-    <Card className="bg-card text-card-foreground col-span-4 rounded-xl">
+    <Card className="col-span-4 rounded-xl bg-card text-card-foreground">
       <div className="flex flex-col space-y-1.5 p-2">
         <div
           className={cn(
@@ -85,7 +85,7 @@ export function EventTopCard({
                     "EEEE, MMMM d"
                   )}
                 </p>
-                <p className="text-muted-foreground text-sm">
+                <p className="text-sm text-muted-foreground">
                   {format(new Date(event.attributes.start_time), "MMM d")}
                   {" -> "}
                   {format(new Date(event.attributes.end_time), "MMM d yyyy")}
