@@ -3,6 +3,7 @@ import { HackerHouses } from "#/components/hacker-houses"
 import { SiteHeader } from "#/components/site-header"
 import { fetchAPI } from "#/lib/fetch-api"
 import type { HackerHouseEvent, HackerHouse, MediaData } from "#/lib/model"
+import React from "react"
 
 interface ApiOrganization {
   id: number
