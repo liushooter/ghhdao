@@ -35,7 +35,22 @@ export interface HackerHouseEvent {
     end_time: string
     publishedAt: string
     organization: { data: Organization }
+    hackers?: { data: Hacker[] }
   }
+}
+
+export interface Hacker {
+  id: number;
+  attributes: {
+    username: string;
+    email: string;
+    provider: string;
+    confirmed: boolean;
+    blocked: boolean;
+    image?: {
+      data: MediaData
+    };
+  };
 }
 
 export interface Organization {
@@ -43,7 +58,7 @@ export interface Organization {
   attributes: {
     title: string
     publishedAt: string
-    avatar: {
+    logo: {
       data: MediaData
     }
   }

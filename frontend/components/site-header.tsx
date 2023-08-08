@@ -1,15 +1,17 @@
 "use client"
 
-import { useUser } from "#/hooks/use-user"
 import React from "react"
 import { UserMenu } from "./user-menu"
 import { GithubLoginButton } from "./github-login-button"
 import Link from "next/link"
 import { cn } from "#/lib/utils"
+import { LOCAL_USER_KEY } from "#/lib/session"
+// @ts-expect-error no typings
+import { useLocalStorage } from "@react-hooks-library/core"
 import { ConnectButton } from "@rainbow-me/rainbowkit"
 
 export function SiteHeader(props: React.HTMLAttributes<HTMLDivElement>) {
-  const user = useUser()
+  const [user] = useLocalStorage(LOCAL_USER_KEY)
 
   return (
     <header

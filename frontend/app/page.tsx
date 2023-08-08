@@ -10,7 +10,7 @@ interface ApiOrganization {
   attributes: {
     title: string
     description?: string
-    avatar: {
+    logo: {
       data: MediaData
     }
   }
@@ -26,7 +26,7 @@ const getHackerHouses = async () => {
           title: x.attributes.title as unknown as string,
           description: x.attributes.description as unknown as string,
           id: x.id as unknown as number,
-          avatar: x.attributes.avatar?.data.attributes.formats.thumbnail?.url,
+          avatar: x.attributes.logo.data?.attributes.formats.thumbnail?.url,
         }) satisfies HackerHouse
     ),
   }

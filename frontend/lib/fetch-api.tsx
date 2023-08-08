@@ -5,7 +5,7 @@ import { type StrapiResponse } from "./model"
 export async function fetchAPI<T = unknown>(
   path: string,
   urlParamsObject = {},
-  options = {}
+  options?: RequestInit
 ): Promise<StrapiResponse<T>> {
   try {
     // Merge default and user options
