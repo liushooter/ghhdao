@@ -1,4 +1,5 @@
 import ky, { type SearchParamsOption } from "ky"
+import { getStrapiURL } from "./api-helpers"
 
 export const LOCAL_JWT_KEY = "__GHH_JWT__"
 export const LOCAL_USER_KEY = "__GHH_CURRENT_USER__"
@@ -8,13 +9,13 @@ export interface Session {
 }
 
 export interface GitHubUser {
-  id: number;
-  username: string;
-  email: string;
-  provider: string;
-  confirmed: boolean;
-  blocked: boolean;
-  image?: string;
+  id: number
+  username: string
+  email: string
+  provider: string
+  confirmed: boolean
+  blocked: boolean
+  image?: string
 }
 
 export async function getCurrentSession({
@@ -29,12 +30,8 @@ export async function getCurrentSession({
   }
 
   const session = await ky
-    .get(
-      `${process.env.NEXT_PUBLIC_STRAPI_API_URL}/api/auth/${providerName}/callback`,
-      { searchParams }
-    )
+    .get(getStrapiURL(`/api/auth/${providerName}/callback`), { searchParams })
     .json<Session>()
-
   return session
 }
 
