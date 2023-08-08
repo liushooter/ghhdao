@@ -6,6 +6,7 @@ import { UserMenu } from "./user-menu"
 import { GithubLoginButton } from "./github-login-button"
 import Link from "next/link"
 import { cn } from "#/lib/utils"
+import {ConnectButton} from "@rainbow-me/rainbowkit";
 
 export function SiteHeader(props: React.HTMLAttributes<HTMLDivElement>) {
   const user = useUser()
@@ -22,7 +23,9 @@ export function SiteHeader(props: React.HTMLAttributes<HTMLDivElement>) {
           </Link>
 
           {user ? <UserMenu user={user} /> : <GithubLoginButton />}
+          <ConnectButton />
         </div>
+
       </div>
     </header>
   )
