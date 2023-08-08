@@ -4,7 +4,7 @@ import "./globals.css"
 import type { Metadata } from "next"
 import { Inter } from "next/font/google"
 import { cn } from "#/lib/utils"
-import { Providers} from '#/components/wallet-menu'
+import { Providers } from "#/components/providers"
 
 const inter = Inter({ subsets: ["latin"] })
 
@@ -55,9 +55,8 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={cn(inter.className)}>
-      <Providers>{children}</Providers>
-      {/*<TooltipProvider delayDuration={0}>{children}</TooltipProvider>*/}
-      <TailwindIndicator />
+        <Providers>{children}</Providers>
+        <TailwindIndicator />
       </body>
     </html>
   )

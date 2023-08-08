@@ -8,13 +8,13 @@ export interface Session {
 }
 
 export interface GitHubUser {
-  id: number;
-  username: string;
-  email: string;
-  provider: string;
-  confirmed: boolean;
-  blocked: boolean;
-  image?: string;
+  id: number
+  username: string
+  email: string
+  provider: string
+  confirmed: boolean
+  blocked: boolean
+  image?: string
 }
 
 export async function getCurrentSession({

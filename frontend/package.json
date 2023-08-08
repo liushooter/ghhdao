@@ -56,14 +56,6 @@
     "tailwindcss-animate": "^1.0.6",
     "typescript": "5.1.6"
   },
-  "devDependencies": {
-    "@types/node": "^18.16.12",
-    "@types/react": "^18.2.14",
-    "eslint": "^8.15.0",
-    "eslint-config-next": "^13.4.3",
-    "next": "^13.4.3",
-    "typescript": "^5.0.4"
-  },
   "engines": {
     "node": ">=16.8.0"
   }
