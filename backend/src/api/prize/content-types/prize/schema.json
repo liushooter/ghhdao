@@ -1,0 +1,30 @@
+{
+  "kind": "collectionType",
+  "collectionName": "prizes",
+  "info": {
+    "singularName": "prize",
+    "pluralName": "prizes",
+    "displayName": "Prize"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "text"
+    },
+    "badge": {
+      "type": "string"
+    },
+    "amount": {
+      "type": "string"
+    },
+    "introduce": {
+      "type": "richtext"
+    },
+    "website": {
+      "type": "text"
+    }
+  }
+}

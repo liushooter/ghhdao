@@ -15,7 +15,6 @@ export function SiteHeader() {
         <Link href="/" className="text-lg font-semibold">
           Global Hacker House DAO
         </Link>
-
         {user ? <UserMenu user={user} /> : <GithubLoginButton />}
       </div>
     </header>
