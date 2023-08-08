@@ -1,7 +1,7 @@
 'use strict';
 
 /**
- * person router
+ * profile router
  */
 
 const { createCoreRouter } = require('@strapi/strapi').factories;

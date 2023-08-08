@@ -1,7 +1,7 @@
 'use strict';
 
 /**
- * person service
+ * profile service
  */
 
 const { createCoreService } = require('@strapi/strapi').factories;

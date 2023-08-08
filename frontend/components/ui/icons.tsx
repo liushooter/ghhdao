@@ -207,7 +207,10 @@ function IconPlus({ className, ...props }: React.ComponentProps<"svg">) {
       className={cn("h-4 w-4", className)}
       {...props}
     >
-      <path d="M224 128a8 8 0 0 1-8 8h-80v80a8 8 0 0 1-16 0v-80H40a8 8 0 0 1 0-16h80V40a8 8 0 0 1 16 0v80h80a8 8 0 0 1 8 8Z" />
+      <path
+        strokeWidth={8}
+        d="M224 128a8 8 0 0 1-8 8h-80v80a8 8 0 0 1-16 0v-80H40a8 8 0 0 1 0-16h80V40a8 8 0 0 1 16 0v80h80a8 8 0 0 1 8 8Z"
+      />
     </svg>
   )
 }
