@@ -26,7 +26,9 @@ export function EventBottomSection({ event }: { event: HackerHouseEvent }) {
                 </CardTitle>
               </CardHeader>
 
-              <CardContent style={{ wordBreak: 'break-word' }}>{event.attributes.introduce}</CardContent>
+              <CardContent style={{ wordBreak: "break-word" }}>
+                {event.attributes.introduce}
+              </CardContent>
             </div>
           </Card>
         )}
@@ -42,44 +44,43 @@ export function EventBottomSection({ event }: { event: HackerHouseEvent }) {
             </CardHeader>
 
             <CardContent className="pt-4">
-              {approvedHackers && (
-                <>
-                  <h4 className="font-medium">
-                    {approvedHackers.length} Hackers
-                  </h4>
-                  <div className="mt-2 flex gap-2">
-                    {approvedHackers.map((hacker) => (
-                      <div
-                        className="flex max-w-[3rem] flex-col gap-2"
-                        key={`hacker-col ${hacker.id}`}
-                      >
-                        <Tooltip>
-                          <TooltipTrigger className="cursor-default">
-                            <Avatar className="h-6 w-6 text-xs">
-                              {/* <AvatarImage
+              <h4 className="font-medium">
+                {approvedHackers?.length ?? 0} Hackers
+              </h4>
+
+              {!!approvedHackers?.length && (
+                <div className="mt-2 flex gap-2">
+                  {approvedHackers.map((hacker) => (
+                    <div
+                      className="flex max-w-[3rem] flex-col gap-2"
+                      key={`hacker-col ${hacker.id}`}
+                    >
+                      <Tooltip>
+                        <TooltipTrigger className="cursor-default">
+                          <Avatar className="h-6 w-6 text-xs">
+                            {/* <AvatarImage
                                 src={
                                   hacker.attributes.image?.data.attributes
                                     .formats.thumbnail?.url
                                 }
                                 alt={`@${hacker.attributes.username}`}
                               /> */}
-                              <AvatarFallback>
-                                {getUserInitials(hacker.attributes.name)}
-                              </AvatarFallback>
-                            </Avatar>
-                          </TooltipTrigger>
-                          <TooltipContent>
-                            <p>{hacker.attributes.name}</p>
-                          </TooltipContent>
-                        </Tooltip>
+                            <AvatarFallback>
+                              {getUserInitials(hacker.attributes.name)}
+                            </AvatarFallback>
+                          </Avatar>
+                        </TooltipTrigger>
+                        <TooltipContent>
+                          <p>{hacker.attributes.name}</p>
+                        </TooltipContent>
+                      </Tooltip>
 
-                        <p className="truncate text-xs text-gray-600">
-                          {hacker.attributes.name}
-                        </p>
-                      </div>
-                    ))}
-                  </div>
-                </>
+                      <p className="truncate text-xs text-gray-600">
+                        {hacker.attributes.name}
+                      </p>
+                    </div>
+                  ))}
+                </div>
               )}
             </CardContent>
           </div>

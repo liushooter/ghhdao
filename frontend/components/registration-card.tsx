@@ -139,7 +139,6 @@ export function RegistrationCard({ event }: { event: HackerHouseEvent }) {
     } catch (error) {
       console.error(error)
     }
-    setIsLoading(false)
   }
 
   return (

@@ -28,8 +28,8 @@ export function GithubLoginButton({
         }
 
         setIsLoading(true)
-        const redirectUrl = getStrapiURL("/api/connect/github")
-        window.location.replace(redirectUrl)
+        const providerRedirectUrl = getStrapiURL("/api/connect/github")
+        window.location.replace(providerRedirectUrl)
       }}
       disabled={isLoading}
       className={cn(className)}
