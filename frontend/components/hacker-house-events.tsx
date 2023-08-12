@@ -50,7 +50,7 @@ export function HackerHouseEvents({ data }: HackerHouseEventsProps) {
                     </p>
                   </div>
                   <div className="flex justify-end">
-                    <p className="text-muted-foreground text-sm">
+                    <p className="text-sm text-muted-foreground">
                       {format(new Date(x.attributes.start_time), "do MMM, yyyy")}
                       {" to "}
                       {format(new Date(x.attributes.end_time), "do MMM, yyyy")}
