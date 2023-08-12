@@ -19,9 +19,9 @@ export function HackerHouseEvents({ data }: HackerHouseEventsProps) {
 
         return (
           <Link href={`/event/${x.id}`} key={x.attributes.title}>
-            <Card className="w-[380px] transition-all hover:scale-105">
-              <div className="flex flex-col space-y-4 p-4">
-                <div className="flex shrink items-center justify-center bg-gray-200">
+            <Card className="h-full w-[380px] transition-all hover:scale-105">
+              <div className="flex h-full flex-col space-y-4 p-4">
+                <div className="flex flex-1 items-center justify-center rounded-md bg-gray-100">
                   {hasCover ? (
                     // eslint-disable-next-line @next/next/no-img-element
                     <img
@@ -50,7 +50,7 @@ export function HackerHouseEvents({ data }: HackerHouseEventsProps) {
                     </p>
                   </div>
                   <div className="flex justify-end">
-                    <p className="text-muted-foreground text-sm">
+                    <p className="text-sm text-muted-foreground">
                       {format(new Date(x.attributes.start_time), "do MMM, yyyy")}
                       {" to "}
                       {format(new Date(x.attributes.end_time), "do MMM, yyyy")}
