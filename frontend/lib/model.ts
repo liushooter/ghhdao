@@ -36,11 +36,11 @@ export interface HackerHouseEvent {
     publishedAt: string
     organization: { data: Organization }
     // hackers?: { data: Hacker[] }
-    event_profiles?: { data: EventProfile[] }
+    applies?: { data: Apply[] }
   }
 }
 
-export interface EventProfile {
+export interface Apply {
   id: number;
   attributes: {
     email: string;

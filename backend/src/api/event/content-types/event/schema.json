@@ -85,10 +85,10 @@
       "relation": "oneToMany",
       "target": "api::prize.prize"
     },
-    "event_profiles": {
+    "applies": {
       "type": "relation",
       "relation": "oneToMany",
-      "target": "api::event-profile.event-profile",
+      "target": "api::apply.apply",
       "mappedBy": "event"
     }
   }

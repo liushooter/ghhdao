@@ -31,12 +31,12 @@ export function RegistrationCard({ event }: { event: HackerHouseEvent }) {
     SetStateAction<GitHubUser>,
   ]
   const [jwt] = useLocalStorage(LOCAL_JWT_KEY)
-  const eventProfile = event.attributes.event_profiles?.data.find(
+  const apply = event.attributes.applies?.data.find(
     (x) => x.attributes.email === user?.email
   )
-  const isWaiting = eventProfile?.attributes.status === "waiting"
-  const isApproved = eventProfile?.attributes.status === "approved"
-  const hasUserRegistered = !!eventProfile
+  const isWaiting = apply?.attributes.status === "waiting"
+  const isApproved = apply?.attributes.status === "approved"
+  const hasUserRegistered = !!apply
   const [isLoading, setIsLoading] = useState(false)
 
   // Form data
@@ -117,7 +117,7 @@ export function RegistrationCard({ event }: { event: HackerHouseEvent }) {
     setIsLoading(true)
     try {
       // Create event profile
-      const response = await ky.post(getStrapiURL("/api/event-profiles"), {
+      const response = await ky.post(getStrapiURL("/api/applies"), {
         headers: {
           Authorization: `Bearer ${jwt}`,
         },

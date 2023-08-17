@@ -74,10 +74,10 @@
       "target": "api::profile.profile",
       "inversedBy": "user"
     },
-    "event_profiles": {
+    "applies": {
       "type": "relation",
       "relation": "oneToMany",
-      "target": "api::event-profile.event-profile",
+      "target": "api::apply.apply",
       "mappedBy": "user"
     }
   }

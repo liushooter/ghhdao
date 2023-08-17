@@ -1,14 +1,12 @@
 "use strict"
 
 /**
- * event-profile controller
+ * apply controller
  */
 
 const { createCoreController } = require("@strapi/strapi").factories
 
-module.exports = createCoreController(
-  "api::event-profile.event-profile",
-  ({ strapi }) => ({
+module.exports = createCoreController("api::apply.apply",({ strapi }) => ({
     async create(ctx) {
       const requestData = ctx.request.body.data
       const { email, name } = requestData

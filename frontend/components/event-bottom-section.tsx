@@ -8,7 +8,7 @@ import { getUserInitials } from "#/lib/utils"
 import { Tooltip, TooltipContent, TooltipTrigger } from "./ui/tooltip"
 
 export function EventBottomSection({ event }: { event: HackerHouseEvent }) {
-  const approvedHackers = event.attributes.event_profiles?.data.filter(
+  const approvedHackers = event.attributes.applies?.data.filter(
     (x) => x.attributes.status === "approved"
   )
 
