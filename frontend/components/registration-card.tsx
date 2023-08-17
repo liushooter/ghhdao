@@ -117,7 +117,7 @@ export function RegistrationCard({ event }: { event: HackerHouseEvent }) {
     setIsLoading(true)
     try {
       // Create event profile
-      const response = await ky.post(getStrapiURL("/api/event-profiles"), {
+      const response = await ky.post(getStrapiURL("/api/applies"), {
         headers: {
           Authorization: `Bearer ${jwt}`,
         },
